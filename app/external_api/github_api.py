@@ -58,7 +58,6 @@ def get_file_object_with_content(file_name:str, file_url:str, sha:str, gh_token:
         content = result.json()["content"]
     except:
         content = "Error when trying to get content from file"
-
     return RepositoryFile(file_name=file_name, file_url=file_url, sha=sha, content=content)
 
 def get_repository_files_with_content(owner: str, repo_name: str, path: str, gh_token: str) -> List[RepositoryFile]:
@@ -72,6 +71,7 @@ def get_repository_files_with_content(owner: str, repo_name: str, path: str, gh_
         response = requests.get(url=url, headers=headers)
         items = response.json()
         for item in items:
+            
             if item["type"] == "file" and get_file_extension(item["name"]):
 
                 file_name= current_path + item["name"]

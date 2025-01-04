@@ -28,10 +28,9 @@ class RepositoryInfo(BaseModel):
 class RepositoryInfoWithFiles(RepositoryInfo):
     repository_files: List[RepositoryFile]
 
-
-
 class ReviewResponse(BaseModel):
     message: str
     level: DevLevel
     grade: Optional[int] = Field(None, ge=0, le=5)
     repository: RepositoryInfo
+    file_names: List[str]

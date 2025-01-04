@@ -22,4 +22,6 @@ ALLOWED_EXTENSIONS = (
     ".ini",
     ".env",
     ".conf",
+    ".md",
+    ""
 )
