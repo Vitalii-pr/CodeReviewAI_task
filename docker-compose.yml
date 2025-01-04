@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  server:
+    env_file: ".env"
+    container_name: server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: server
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/code/server
+    command: poetry run uvicorn app.main:app --port 8000 --host 0.0.0.0
+    depends_on:
+      - redis
+    restart: always
+
+
+  redis:
+    image: "redis:alpine"
+    container_name: redis
+    ports:
+      - "6379:6379"
+
