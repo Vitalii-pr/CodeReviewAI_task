@@ -54,3 +54,6 @@ To handle high traffic (e.g., 100+ new review requests per minute) and large rep
 
 3. **Large Repos**
    Just check files with code and configuration. Avoid different files with content or some not neccesary information. Also can make filtration of this files using OpenAI API depending on file_names
+
+---
+PS: also i think good idea to store different review in noSQL db. Maybe it's gonna be helpful for future development or different new tasks.
